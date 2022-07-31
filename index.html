@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fullpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Sempala Tanish | Portfolio</title>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="home section">
+             <nav>
+                <ul class="h-ul">
+                    <li data-menuanchor="firstPage" class="h-li"><a class="t-none" href="#">Home</a></li>
+                    <li data-menuanchor="secondPage" class="h-li"><a class="t-none" href="#about">About</a></li>
+                    <li data-menuanchor="3rdPage" class="h-li"><a class="t-none" href="#projects">Projects</a></li>
+                    <li data-menuanchor="4rdPage" class="h-li"><a class="t-none" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="center">
+                <div class="me">
+                <h2>ROLE: 
+                    <span style="--i:1">W</span><span style="--i:2">E</span><span style="--i:3">B</span>
+                    <span style="--i:4">-</span>
+                    <span style="--i:5">D</span><span style="--i:6">E</span><span style="--i:7">S</span><span style="--i:8">I</span><span style="--i:9">G</span><span style="--i:10">N</span><span style="--i:11">E</span><span style="--i:12">R</span></h2>
+                <h2>NAME:
+                    
+                    <span style="--i:1">S</span><span style="--i:3">E</span><span style="--i:4">M</span><span style="--i:5">P</span><span style="--i:6">A</span><span style="--i:7">L</span><span style="--i:8">A</span>
+                    <span style="--i:9"> </span>
+                    <span style="--i:10">T</span><span style="--i:11">A</span><span style="--i:12">N</span><span style="--i:13">I</span><span style="--i:14">S</span><span style="--i:15">H</span></h2>
+                </div>
+                <div class="image1"><img src="/img/face.jpg" alt=""></div>
+            </div>
+            <div class="explore"><button class="j"><a class="t-none" href="#about">Explore</a></button><button><a class="t-none" href="#">Resume</a></button></div>
+        </div>
+        <div class="about section" id="about">
+            <h1>ABOUT ME</h1>
+            <div class="center2">
+                <div class="image2"><img src="/img/face.jpg" alt=""></div>
+                <p class="word about-p"></p>
+            </div>
+            <div class="skills">
+                <h2>SKILLS</h2>
+                <ul class="s-ul">
+                    <li class="s-li">Javascript</li>
+                    <li class="s-li">jQuery</li>
+                    <li class="s-li">Bootstrap</li>
+                    <li class="s-li">PHP</li>
+                    <li class="s-li">Java</li>
+                    <li class="s-li">Python</li>
+                    <li class="s-li">SQL</li>
+                </ul>
+            </div>
+        </div>
+        <div class="projects section" id="projects">
+            <center>
+                <h1>MY PROJECTS</h1>
+                <h1 style="margin-top: 20vh; text-decoration: none;">Projects Are Still In Development</h1>  
+            </center>
+        </div>
+        <div class="contact section"n id="contact">
+            <h1>Contact Me</h1>
+            <div class="avatar">
+                    <img src="/img/face.jpg" alt="Skytsunami" />
+            </div>
+            <div>
+                <a class="ic" href="" target="_blank"><i class="fa fa-telegram fa-5x"></i></a>
+                <a class="ic" href="" target="_blank"><i class="fa fa-linkedin-square fa-5x"></i></a>
+                <a class="ic" href="" target="_blank"><i class="fa fa-envelope fa-5x"></i></a>
+                <a class="ic" href="" target="_blank"><i class="fa fa-github fa-5x"></i></a>
+            </div>
+            <p>Love Sleep Code & Play</p>
+        </div>
+    </div>
+
+    <script src="fullpage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script> $(document).ready(function() { $('#fullpage').fullpage(); });</script>
+    <script>new fullpage('#fullpage');</script>
+    <script>
+        var words = ['A Tech Enthusiast and a passionate Web Designer with a good experience in web development. Started the Coding journey back in 2018, and managed to acquire several skills Also Did some Mobile App development but decided to focus on Web Designing'],
+    part,
+    i = 0,
+    offset = 0,
+    len = words.length,
+    forwards = true,
+    skip_count = 0,
+    skip_delay = 50,
+    speed = 40;
+var wordflick = function () {
+  setInterval(function () {
+    if (forwards) {
+      if (offset >= words[i].length) {
+        ++skip_count;
+        if (skip_count == skip_delay) {
+          forwards = false;
+          skip_count = 0;
+        }
+      }
+    }
+    else {
+      if (offset == 0) {
+        forwards = true;
+        i++;
+        offset = 0;
+        if (i >= len) {
+          i = 0;
+        }
+      }
+    }
+    part = words[i].substr(0, offset);
+    if (skip_count == 0) {
+      if (forwards) {
+        offset++;
+      }
+      else {
+        offset--;
+      }
+    }
+    $('.word').text(part);
+  },speed);
+};
+
+$(document).ready(function () {
+  wordflick();
+});
+    </script>
+</body>
+</html>
